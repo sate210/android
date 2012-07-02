@@ -1,0 +1,50 @@
+#
+# system.prop for smdkv210
+#
+
+rild.libpath=/system/lib/libreference-ril.so
+rild.libargs=-d /dev/ttyS0
+
+ro.build.product=sate210
+ro.product.device=sate210
+ro.product.model=sate210
+ro.hardware=sate210
+ro.product.board=sate210
+ro.radio.noril=yes
+ro.serialno=31343E23FACE00EC
+ro.setupwizard.enterprise_mode=1  
+ro.product.manufacturer=sate210
+ro.product.model=sate210
+ro.product.name=sate210
+
+ro.sf.lcd_density=160
+persist.sys.language=zh
+persist.sys.country=CN
+persist.sys.timezone=Asia/Shanghai
+keyguard.no_require_sim=1
+
+wifi.interface=eth0
+wifi.supplicant_scan_interval=20
+#windowsmgr.max_events_per_sec=60
+dalvik.vm.heapsize=48m
+
+persist.service.adb.enable=1
+ro.setupwizard.mode=DISABLED
+
+media.stagefright.enable-player=true
+media.stagefright.enable-meta=true
+media.stagefright.enable-scan=true
+media.stagefright.enable-http=true
+
+# ro.additionalmounts=/mnt/sdcard_ext
+ro.additionalmounts=/mnt/sdcard/sdcard_ext;/mnt/usb_disk
+
+# for Google Marker
+#gsm.sim.operator.numeric=31026
+#gsm.sim.operator.alpha=T-Mobile
+#gsm.sim.operator.iso-country=us
+
+persist.sys.strictmode.visual=0
+persist.sys.strictmode.disable=1
+
+persist.sys.usb.config=mass_storage,adb

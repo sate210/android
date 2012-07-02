@@ -1,0 +1,62 @@
+import init.smdkc110.usb.rc
+
+on early-init
+    export EXTERNAL_STORAGE /mnt/sdcard
+    export SECONDARY_STORAGE /mnt/ext_sd:/mnt/usb
+
+    mkdir /mnt/sdcard 0000 system system
+    mkdir /mnt/ext_sd 0000 system system
+    mkdir /mnt/usb 0000 system system
+    # for backwards compatibility
+    symlink /mnt/sdcard /sdcard
+    symlink /mnt/ext_sd /ext_sd
+
+on post-fs-data
+    # we will remap this as /mnt/sdcard with the sdcard fuse tool
+    mkdir /data/media 0775 media_rw media_rw
+    chown media_rw media_rw /data/media
+    setprop vold.post_fs_data_done 1
+    mkdir /data/misc/dhcp 0770 dhcp dhcp
+    chown dhcp dhcp /data/misc/dhcp
+
+# 3D init
+service pvrsrvinit /system/vendor/bin/pvrsrvinit
+    class core
+    user root
+    group root
+    oneshot
+
+# eth0
+service dhcpcd_eth0 /system/bin/dhcpcd -ABKL
+    class main
+    disabled
+    oneshot
+
+# IP Renew
+# eth0 
+service iprenew_eth0 /system/bin/dhcpcd -n
+    class main
+    disabled
+    oneshot
+
+on boot
+	mount debugfs /sys/kernel/debug /sys/kernel/debug
+	chmod 0666 /dev/pvrsrvkm
+    	setprop ro.build.product smdkc110
+    	setprop ro.product.device smdkc110
+
+	chmod 0666 /sys/class/backlight/pwm-backlight.0/brightness
+	chown system system /sys/class/backlight/pwm-backlight.0/brightness
+	
+
+on fs
+# mount ext4 partitions
+    	export EXTERNAL_STORAGE /mnt/sdcard
+	export SECONDARY_STORAGE /mnt/ext_sd:/mnt/usb
+
+	mkdir /mnt/sdcard 0000 system system
+	mkdir /mnt/ext_sd 0000 system system
+	mkdir /mnt/usb 0000 system system
+
+	symlink /mnt/sdcard /sdcard
+	symlink /mnt/ext_sd /ext_sd
