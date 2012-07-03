@@ -1,7 +1,7 @@
 #!/bin/bash
 
-#JAVA_HOME=/usr/local/arm/jdk1.6.0/
-JAVA_HOME=/home/fighter/work/usr
+JAVA_HOME=/usr/local/arm/jdk1.6.0/
+#JAVA_HOME=/home/fighter/work/usr
 ANDROID_JAVA_HOME=$JAVA_HOME
 PATH=$JAVA_HOME/bin:$PATH
 
