@@ -67,7 +67,7 @@ import java.util.List;
  */
 public class WifiWatchdogStateMachine extends StateMachine {
 
-    private static final boolean DBG = true;//fighter 
+    private static final boolean DBG = true;//sate210 
     private static final String TAG = "WifiWatchdogStateMachine";
     private static final String DISABLED_NETWORK_NOTIFICATION_ID = "WifiWatchdog.networkdisabled";
     private static final String WALLED_GARDEN_NOTIFICATION_ID = "WifiWatchdog.walledgarden";

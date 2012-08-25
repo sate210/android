@@ -323,9 +323,9 @@ class AccessPoint extends Preference {
         if (mState != null) { // This is the active connection
             setSummary(Summary.get(context, mState));
         } else if (mRssi == Integer.MAX_VALUE) { // Wifi out of range
-        	//fighter++
+        	//sate210++
             setSummary(context.getString(R.string.wifi_not_in_range));
-          //fighter--
+          //sate210--
         } else if (mConfig != null && mConfig.status == WifiConfiguration.Status.DISABLED) {
             switch (mConfig.disableReason) {
                 case WifiConfiguration.DISABLED_AUTH_FAILURE:

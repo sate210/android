@@ -258,9 +258,9 @@ public class NetworkStatsFactory {
      */
     public NetworkStats readNetworkStatsDetail(int limitUid) throws IllegalStateException {
         final NetworkStats stats = new NetworkStats(SystemClock.elapsedRealtime(), 24);
-		//fighter++
+		//sate210++
 		return stats;
-		//fighter--
+		//sate210--
 		/*
         final NetworkStats.Entry entry = new NetworkStats.Entry();
 

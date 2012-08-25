@@ -36,7 +36,7 @@ import android.util.Log;
 class SupplicantStateTracker extends StateMachine {
 
     private static final String TAG = "SupplicantStateTracker";
-    private static final boolean DBG = true;//fighter
+    private static final boolean DBG = true;//sate210
 
     private WifiStateMachine mWifiStateMachine;
     private int mAuthenticationFailuresCount = 0;

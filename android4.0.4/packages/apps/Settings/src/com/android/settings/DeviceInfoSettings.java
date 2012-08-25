@@ -133,7 +133,7 @@ public class DeviceInfoSettings extends SettingsPreferenceFragment {
                     Log.e(LOG_TAG, "Unable to start activity " + intent.toString());
                 }
             }
-            //fighter++
+            //sate210++
          }
 //         else if (preference.getKey().equals(KEY_SYSTEM_ROM_UPDATE)) 
 //       		{

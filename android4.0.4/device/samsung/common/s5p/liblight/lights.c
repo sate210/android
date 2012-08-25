@@ -28,10 +28,10 @@
 static pthread_once_t g_init = PTHREAD_ONCE_INIT;
 static pthread_mutex_t g_lock = PTHREAD_MUTEX_INITIALIZER;
 
-//fighter++
+//sate210++
 //char const *const LCD_FILE = "/sys/class/backlight/pwm-backlight.0/brightness";
 char const *const LCD_FILE = "/sys/class/backlight/pwm-backlight/brightness";
-//fighter--
+//sate210--
 static int write_int(char const *path, int value)
 {
     int fd;

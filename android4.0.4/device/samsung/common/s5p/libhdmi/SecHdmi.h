@@ -52,9 +52,9 @@
 #include "../libsForhdmi/libcec/libcec.h"
 
 namespace android {
-//fighter++
+//sate210++
 #define DEBUG_HDMI_HW_LEVEL
-//fighter--
+//sate210--
 
 #define HDMI_FIMC_OUTPUT_BUF_NUM 3
 

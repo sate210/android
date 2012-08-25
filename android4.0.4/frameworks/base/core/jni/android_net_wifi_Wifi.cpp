@@ -27,7 +27,7 @@
 
 #define WIFI_PKG_NAME "android/net/wifi/WifiNative"
 #define BUF_SIZE 256
-//fighter++
+//sate210++
 #include <stdlib.h>
 #include <fcntl.h>
 #include <errno.h>
@@ -36,7 +36,7 @@
 static int DEBUG = 0;
 char const*const WIFI_SUPPEND_STATE = "/proc/wifistate/state";
 char const*const POWER_3G_VALUE = "/sys/class/sec/w3g/3GW_PWR_CTL/value";
-//fighter--
+//sate210--
 //TODO: This file can be refactored to push a lot of the functionality to java
 //with just a few JNI calls - doBoolean/doInt/doString
 
@@ -267,9 +267,9 @@ static jstring android_net_wifi_listNetworksCommand(JNIEnv* env, jobject)
 {
 		if(1 == DEBUG)
 		LOGE("%s++++++++++++++++++++++++\n",__func__);
-		//fighter++
+		//sate210++
 	//	doIntCommand("ADD_NETWORK");
-	//fighter--
+	//sate210--
     return doStringCommand(env, "LIST_NETWORKS");
 }
 
@@ -648,7 +648,7 @@ static jboolean android_net_wifi_setSuspendOptimizationsCommand(JNIEnv* env, job
 {
 		if(1 == DEBUG)
 		LOGE("%s++++++++++++++++++++++++\n",__func__);
-		//fighter++
+		//sate210++
 		if(read_wifi_state())
 		{
 			doBooleanCommand("OK", "TERMINATE");
@@ -660,9 +660,9 @@ static jboolean android_net_wifi_setSuspendOptimizationsCommand(JNIEnv* env, job
     		return doBooleanCommand("OK", "DRIVER SETSUSPENDOPT %d", enabled ? 0 : 1);
     	}
 
-    //fighter--
+    //sate210--
 }
-//fighter++
+//sate210++
 static jboolean android_net_3g_setpower(JNIEnv* env, jobject, jboolean enabled)
 {
 		if(1 == DEBUG)
@@ -670,7 +670,7 @@ static jboolean android_net_3g_setpower(JNIEnv* env, jobject, jboolean enabled)
 		set_3g_power((enabled ? 1 : 0));
 		return 0;
 }
-//fighter--
+//sate210--
 
 static void android_net_wifi_enableBackgroundScanCommand(JNIEnv* env, jobject, jboolean enable)
 {
@@ -786,10 +786,10 @@ static JNINativeMethod gWifiMethods[] = {
         (void*) android_net_wifi_wpsPinFromDeviceCommand },
     { "setSuspendOptimizationsCommand", "(Z)Z",
         (void*) android_net_wifi_setSuspendOptimizationsCommand},
-    //fighter++
+    //sate210++
     { "set3g_module_power", "(Z)Z",
         (void*) android_net_3g_setpower},
-    //fighter--
+    //sate210--
     { "setCountryCodeCommand", "(Ljava/lang/String;)Z",
         (void*) android_net_wifi_setCountryCodeCommand},
     { "enableBackgroundScanCommand", "(Z)V", (void*) android_net_wifi_enableBackgroundScanCommand},

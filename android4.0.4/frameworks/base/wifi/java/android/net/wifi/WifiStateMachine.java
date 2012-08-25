@@ -107,7 +107,7 @@ public class WifiStateMachine extends StateMachine {
 
     private static final String TAG = "WifiStateMachine";
     private static final String NETWORKTYPE = "WIFI";
-    private static final boolean DBG = true;//fighter
+    private static final boolean DBG = true;//sate210
 
     /* TODO: This is no more used with the hostapd code. Clean up */
     private static final String SOFTAP_IFACE = "wl0.1";
@@ -1621,11 +1621,11 @@ public class WifiStateMachine extends StateMachine {
     private void handleNetworkDisconnect() {
         if (DBG) log("Stopping DHCP and clearing IP");
 
-//fighter++
+//sate210++
         /* In case we were in middle of DHCP operation
            restore back powermode */
      //   handlePostDhcpSetup();
-//fighter--
+//sate210--
         /*
          * stop DHCP
          */
@@ -2224,9 +2224,9 @@ public class WifiStateMachine extends StateMachine {
                 case WifiMonitor.SUP_DISCONNECTION_EVENT:
                     if (++mSupplicantRestartCount <= SUPPLICANT_RESTART_TRIES) {
                         loge("Failed to setup control channel, restart supplicant");
-                    //fighter++
+                    //sate210++
                     handlePostDhcpSetup();
-                    //fighter--                        
+                    //sate210--                        
                         WifiNative.killSupplicant();
                         transitionTo(mDriverLoadedState);
                         sendMessageDelayed(CMD_START_SUPPLICANT, SUPPLICANT_RESTART_INTERVAL_MSECS);
@@ -2289,9 +2289,9 @@ public class WifiStateMachine extends StateMachine {
                     break;
                 case WifiMonitor.SUP_DISCONNECTION_EVENT:  /* Supplicant connection lost */
                     loge("Connection lost, restart supplicant");
-                    //fighter++
+                    //sate210++
                     handlePostDhcpSetup();
-                    //fighter--
+                    //sate210--
                     WifiNative.killSupplicant();
                     WifiNative.closeSupplicantConnection();
                     mNetworkInfo.setIsAvailable(false);
@@ -2420,9 +2420,9 @@ public class WifiStateMachine extends StateMachine {
                     /* Socket connection can be lost when we do a graceful shutdown
                      * or when the driver is hung. Ensure supplicant is stopped here.
                      */
-                    //fighter++
+                    //sate210++
                     handlePostDhcpSetup();
-                    //fighter--                     
+                    //sate210--                     
                     WifiNative.killSupplicant();
                     WifiNative.closeSupplicantConnection();
                     transitionTo(mDriverLoadedState);
@@ -2430,9 +2430,9 @@ public class WifiStateMachine extends StateMachine {
                 case CMD_STOP_SUPPLICANT_FAILED:
                     if (message.arg1 == mSupplicantStopFailureToken) {
                         loge("Timed out on a supplicant stop, kill and proceed");
-                    //fighter++
+                    //sate210++
                     handlePostDhcpSetup();
-                    //fighter--                        
+                    //sate210--                        
                         WifiNative.killSupplicant();
                         WifiNative.closeSupplicantConnection();
                         transitionTo(mDriverLoadedState);

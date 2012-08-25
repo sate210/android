@@ -37,7 +37,7 @@ import java.util.concurrent.LinkedBlockingQueue;
  * protocol.
  */
 final class NativeDaemonConnector implements Runnable, Handler.Callback, Watchdog.Monitor {
-    private static final boolean LOCAL_LOGD = false;//fighter
+    private static final boolean LOCAL_LOGD = false;//sate210
 
     private BlockingQueue<String> mResponseQueue;
     private OutputStream          mOutputStream;

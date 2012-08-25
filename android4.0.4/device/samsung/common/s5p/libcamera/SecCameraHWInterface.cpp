@@ -17,9 +17,9 @@
 */
 
 #define LOG_NDEBUG 0
-//fighter++
+//sate210++
 //#define LOGE LOGV
-//fighter--
+//sate210--
 #define LOG_TAG "CameraHardwareSec"
 //#define LOGE LOGV
 
@@ -161,7 +161,7 @@ void CameraHardwareSec::initDefaultParameters(int cameraId)
     int preview_max_height  = 0;
     int snapshot_max_width  = 0;
     int snapshot_max_height = 0;
-//fighter++
+//sate210++
 //    if (cameraId == SecCamera::CAMERA_ID_BACK) {
 //        p.set(CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES,
 //              "720x480,640x480,352x288,176x144");
@@ -194,7 +194,7 @@ void CameraHardwareSec::initDefaultParameters(int cameraId)
         	"640x480");
     }
     
-//fighter--
+//sate210--
     p.getSupportedPreviewSizes(mSupportedPreviewSizes);
 
     // If these fail, then we are using an invalid cameraId and we'll leave the
@@ -226,7 +226,7 @@ void CameraHardwareSec::initDefaultParameters(int cameraId)
     String8 parameterString;
 
     if (cameraId == SecCamera::CAMERA_ID_BACK) {
-    	//fighter++
+    	//sate210++
      	if(FOCUS_MODE_SUPPORT){
         	parameterString = CameraParameters::FOCUS_MODE_AUTO;
         	parameterString.append(",");
@@ -248,7 +248,7 @@ void CameraHardwareSec::initDefaultParameters(int cameraId)
         		p.set(CameraParameters::KEY_FOCUS_DISTANCES,
               	FRONT_CAMERA_FOCUS_DISTANCES_STR);
 			}     
-			//fighter--         
+			//sate210--         
         p.set(CameraParameters::KEY_SUPPORTED_JPEG_THUMBNAIL_SIZES,
               "320x240,0x0");
         p.set(CameraParameters::KEY_JPEG_THUMBNAIL_WIDTH, "320");
@@ -294,7 +294,7 @@ void CameraHardwareSec::initDefaultParameters(int cameraId)
               parameterString.string());
         p.set(CameraParameters::KEY_FLASH_MODE,
               CameraParameters::FLASH_MODE_OFF);
-				//fighter++
+				//sate210++
 				if(SCENE_MODE_SUPPORT){
         	parameterString = CameraParameters::SCENE_MODE_AUTO;
         	parameterString.append(",");
@@ -324,7 +324,7 @@ void CameraHardwareSec::initDefaultParameters(int cameraId)
          }else{
          	
         }     	
-				//fighter--
+				//sate210--
         /* we have two ranges, 4-30fps for night mode and
          * 15-30fps for all others
          */
@@ -603,9 +603,9 @@ int CameraHardwareSec::previewThread()
     int width, height, frame_size, offset;
 
     mSecCamera->getPreviewSize(&width, &height, &frame_size);
-    //fighter++
+    //sate210++
     	offset = (frame_size + 16)* index ;
-		//fighter--
+		//sate210--
     if (mPreviewWindow && mGrallocHal) {
         buffer_handle_t *buf_handle;
         int stride;
@@ -1790,9 +1790,9 @@ status_t CameraHardwareSec::setParameters(const CameraParameters& params)
 
     // rotation
     int new_rotation = params.getInt(CameraParameters::KEY_ROTATION);
-    //fighter++
+    //sate210++
     new_rotation = 0;
-    //fighter--	
+    //sate210--	
     LOGE("%s : new_rotation %d", __func__, new_rotation);
     if (0 <= new_rotation) {
         LOGE("%s : set orientation:%d\n", __func__, new_rotation);
@@ -2388,7 +2388,7 @@ status_t CameraHardwareSec::storeMetaDataInBuffers(bool enable)
 static CameraInfo sCameraInfo[] = {
     {
         CAMERA_FACING_BACK,
-        180,  /* orientation */ //fighter
+        180,  /* orientation */ //sate210
     },
     {
         CAMERA_FACING_FRONT,

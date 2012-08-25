@@ -103,9 +103,9 @@ static void wpa_supplicant_scan(void *eloop_ctx, void *timeout_ctx)
 	if (!wpa_supplicant_enabled_networks(wpa_s->conf) &&
 	    !wpa_s->scan_req) {
 		wpa_printf(MSG_DEBUG, "No enabled networks - do not scan");
-		//fighter++
+		//sate210++
 		//wpa_supplicant_set_state(wpa_s, WPA_INACTIVE);
-		//fighter--
+		//sate210--
 		return;
 	}
 	scan_req = wpa_s->scan_req;

@@ -40,13 +40,13 @@
 #include <utils/String8.h>
 
 #include "JpegEncoder.h"
-//fighter++
+//sate210++
 #define LOG_NDEBUG 0
-//fighter--
+//sate210--
 namespace android {
-//fighter++
+//sate210++
 #define ENABLE_ESD_PREVIEW_CHECK
-//fighter--
+//sate210--
 
 #if defined(LOG_NDEBUG) && LOG_NDEBUG == 0
 #define LOG_CAMERA LOGD
@@ -159,7 +159,7 @@ namespace android {
 
 #define BPP             2
 #define MIN(x, y)       (((x) < (y)) ? (x) : (y))
-#define MAX_BUFFERS     9 // 11   //fighter
+#define MAX_BUFFERS     9 // 11   //sate210
 
 #define FIRST_AF_SEARCH_COUNT 80
 #define SECOND_AF_SEARCH_COUNT 80

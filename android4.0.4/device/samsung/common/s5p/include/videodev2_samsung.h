@@ -481,7 +481,7 @@ enum v4l2_slow_ae_mode {
 #define V4L2_CID_CAMERA_GET_FLASH_ONOFF		(V4L2_CID_PRIVATE_BASE + 118)
 #define V4L2_CID_CAMERA_RETURN_FOCUS		(V4L2_CID_PRIVATE_BASE + 119)
 
-//fighter++
+//sate210++
 //该项是为添加GC2015 flash 功能而添加的
 #define V4L2_CID_CAMERA_START_FLASH		(V4L2_CID_PRIVATE_BASE + 0xff)
 //figher--

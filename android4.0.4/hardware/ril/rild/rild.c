@@ -240,9 +240,9 @@ int main(int argc, char **argv)
     }
 OpenLib:
 #endif
-//fighter++
+//sate210++
 //    switchUser();
-//fighter--
+//sate210--
 
     dlHandle = dlopen(rilLibPath, RTLD_NOW);
 

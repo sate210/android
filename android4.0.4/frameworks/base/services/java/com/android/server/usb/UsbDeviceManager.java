@@ -66,8 +66,8 @@ import java.util.Map;
 public class UsbDeviceManager {
 
     private static final String TAG = UsbDeviceManager.class.getSimpleName();
-    private static final boolean DEBUG = true;//fighter false
-//fighter++
+    private static final boolean DEBUG = true;//sate210 false
+//sate210++
 //    private static final String USB_STATE_MATCH =
 //            "DEVPATH=/devices/virtual/android_usb/android0";
 //    private static final String ACCESSORY_START_MATCH =
@@ -93,7 +93,7 @@ public class UsbDeviceManager {
             "/sys/devices/platform/usb_mass_storage/lun0/file";
     private static final String RNDIS_ETH_ADDR_PATH =
             "/sys/class/android_usb/android0/f_rndis/ethaddr";
-//fighter--
+//sate210--
     private static final int MSG_UPDATE_STATE = 0;
     private static final int MSG_ENABLE_ADB = 1;
     private static final int MSG_SET_CURRENT_FUNCTION = 2;
@@ -141,7 +141,7 @@ public class UsbDeviceManager {
 
             String state = event.get("USB_STATE");
             String accessory = event.get("ACCESSORY");
-			//fighter++
+			//sate210++
             try{
              	String usb_state = FileUtils.readTextFile(new File(STATE_PATH), 0, null).trim();
 							if(usb_state.equals("1"))
@@ -156,7 +156,7 @@ public class UsbDeviceManager {
                 Slog.v(TAG,"IOException: " + e);
             }
 			
-			//fighter--
+			//sate210--
             
             if (state != null) {
                 mHandler.updateState(state);

@@ -726,7 +726,7 @@ bool SecHdmi::connect(void)
 
         if(   mSecFimc.flagCreate() == false
         //   && mSecFimc.create(SecFimc::FIMC_DEV1, FIMC_OVLY_NONE_SINGLE_BUF, 1) == false)
-           && mSecFimc.create(SecFimc::FIMC_DEV2, FIMC_OVLY_NONE_SINGLE_BUF, 1) == false)//fighter
+           && mSecFimc.create(SecFimc::FIMC_DEV2, FIMC_OVLY_NONE_SINGLE_BUF, 1) == false)//sate210
         {
             LOGE("%s::SecFimc create fail \n", __func__);
             return false;
@@ -840,7 +840,7 @@ bool SecHdmi::flush(int w, int h, int colorFormat,
     if(mSecFimc.flagCreate() == false)
     {
         //if(mSecFimc.create(SecFimc::FIMC_DEV1, FIMC_OVLY_NONE_SINGLE_BUF, 1) == false)
-        if(mSecFimc.create(SecFimc::FIMC_DEV2, FIMC_OVLY_NONE_SINGLE_BUF, 1) == false)	//fighter
+        if(mSecFimc.create(SecFimc::FIMC_DEV2, FIMC_OVLY_NONE_SINGLE_BUF, 1) == false)	//sate210
         {
             LOGE("%s::SecFimc create fail \n", __func__);
             return false;
@@ -2437,12 +2437,12 @@ bool SecHdmi::m_runEdid(bool flagInsert)
             Mutex::Autolock lock(mHdmiThreadLock);
             hdmiThread = mHdmiThread;
         }
- //fighter++
+ //sate210++
 //        if (hdmiThread != 0)
 //        {
 //            hdmiThread->requestExitAndWait();
 //        }
- //fighter--
+ //sate210--
         Mutex::Autolock lock(mHdmiThreadLock);
         hdmiThread.clear();
         mFirstRef = false;
@@ -2634,10 +2634,10 @@ bool SecHdmi::runCEC(void)
             size = 4;
             break;
     }
-//fighter++
+//sate210++
 //    if (CECSendMessage(mCecBuffer, size) != size)
 //        LOGE("CECSendMessage() failed!!!\n");
-//fighter--
+//sate210--
 
     return true;
 

@@ -50,14 +50,14 @@ public class UsbService extends IUsbManager.Stub {
         if (pm.hasSystemFeature(PackageManager.FEATURE_USB_HOST)) {
             mHostManager = new UsbHostManager(context, mSettingsManager);
         }
-        //fighter++
+        //sate210++
 //        if (new File("/sys/class/android_usb").exists()) {
 //            mDeviceManager = new UsbDeviceManager(context, mSettingsManager);
 //        }
         if (new File("/sys/class/usb_composite").exists()) {
             mDeviceManager = new UsbDeviceManager(context, mSettingsManager);
         }
-        //fighter--
+        //sate210--
     }
 
     public void systemReady() {

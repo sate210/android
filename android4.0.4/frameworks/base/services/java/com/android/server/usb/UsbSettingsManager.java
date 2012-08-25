@@ -62,7 +62,7 @@ import java.util.List;
 class UsbSettingsManager {
 
     private static final String TAG = "UsbSettingsManager";
-    private static final boolean DEBUG = false;//false fighter
+    private static final boolean DEBUG = false;//false sate210
     private static final File sSettingsFile = new File("/data/system/usb_device_manager.xml");
 
     private final Context mContext;

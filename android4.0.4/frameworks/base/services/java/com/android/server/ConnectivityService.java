@@ -100,10 +100,10 @@ import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.List;
 
-//fighter++
+//sate210++
 import android.net.wifi.WifiNative;
 
-//fighter--
+//sate210--
 /**
  * @hide
  */
@@ -1437,9 +1437,9 @@ private NetworkStateTracker makeWimaxStateTracker() {
     public void setMobileDataEnabled(boolean enabled) {
         enforceChangePermission();
         if (DBG) log("setMobileDataEnabled(" + enabled + ")");
-				//fighter++
+				//sate210++
 				WifiNative.set3g_module_power(enabled);
-				//fighter--
+				//sate210--
         mHandler.sendMessage(mHandler.obtainMessage(EVENT_SET_MOBILE_DATA,
                 (enabled ? ENABLED : DISABLED), 0));
     }

@@ -78,10 +78,10 @@ static char iface[PROPERTY_VALUE_MAX];
 
 #define WIFI_DRIVER_LOADER_DELAY	1000000
 
-//fighter++
+//sate210++
 //static const char IFACE_DIR[]           = "/data/system/wpa_supplicant";
 static const char IFACE_DIR[]           = "/data/misc/wifi/wpa_supplicant";
-//fighter--
+//sate210--
 #ifdef WIFI_DRIVER_MODULE_PATH
 static const char DRIVER_MODULE_NAME[]  = WIFI_DRIVER_MODULE_NAME;
 static const char DRIVER_MODULE_TAG[]   = WIFI_DRIVER_MODULE_NAME " ";
@@ -211,9 +211,9 @@ int wifi_load_driver()
 		LOGE("load wifi path = %s+++++++++++++++++\n", DRIVER_MODULE_PATH);
     if (insmod(DRIVER_MODULE_PATH, DRIVER_MODULE_ARG) < 0)
         return -1;
-		//fighter++
+		//sate210++
 		sleep(2);
-		//fighter--
+		//sate210--
     if (strcmp(FIRMWARE_LOADER,"") == 0) {
         /* usleep(WIFI_DRIVER_LOADER_DELAY); */
         property_set(DRIVER_PROP_NAME, "ok");
@@ -596,7 +596,7 @@ int wifi_connect_to_supplicant()
         LOGE("Supplicant not running, cannot connect");
         return -1;
     }
-//fighter++	
+//sate210++	
 	// Hardkernel/Odroid Modified
     property_get("wifi.interface", iface, "eth0");
 
@@ -605,7 +605,7 @@ int wifi_connect_to_supplicant()
     } else {
         strlcpy(ifname, iface, sizeof(ifname));
     }
-//fighter--
+//sate210--
     ctrl_conn = wpa_ctrl_open(ifname);
     if (ctrl_conn == NULL) {
         LOGE("Unable to open connection to supplicant on \"%s\": %s",

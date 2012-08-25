@@ -1,12 +1,12 @@
 #!/bin/bash
 
-JAVA_HOME=/usr/local/arm/jdk1.6.0/
+JAVA_HOME=/home/cyt/share/android/jdk1.6.0_34
 #JAVA_HOME=/home/fighter/work/usr
 ANDROID_JAVA_HOME=$JAVA_HOME
 PATH=$JAVA_HOME/bin:$PATH
 
-COMPILE_USES_32BIT=true
-export COMPILE_USES_32BIT
+#COMPILE_USES_32BIT=true
+#export COMPILE_USES_32BIT
 
 #export USE_CCACHE=1
 #export CCACHE_DIR=/home/cuiyongtai/CACHE_andrid4.0.3

@@ -184,9 +184,9 @@ public class WifiNative {
     public native static String startWpsWithPinFromDeviceCommand(String bssid);
 
     public native static boolean setSuspendOptimizationsCommand(boolean enabled);
-    //fighter++
+    //sate210++
      public native static boolean set3g_module_power(boolean enabled);
-    //fighter--
+    //sate210--
 
     public native static boolean setCountryCodeCommand(String countryCode);
 

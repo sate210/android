@@ -516,10 +516,10 @@ public class VideoCamera extends ActivityBase
         final String[] SETTING_KEYS = {
                     CameraSettings.KEY_VIDEOCAMERA_FLASH_MODE,
                     CameraSettings.KEY_WHITE_BALANCE,
-                    //fighter++
+                    //sate210++
                   //  CameraSettings.KEY_VIDEO_EFFECT,
                   //  CameraSettings.KEY_VIDEO_TIME_LAPSE_FRAME_INTERVAL,
-                  //fighter-
+                  //sate210-
                     CameraSettings.KEY_VIDEO_QUALITY};
         final String[] OTHER_SETTING_KEYS = {
                     CameraSettings.KEY_RECORD_LOCATION};

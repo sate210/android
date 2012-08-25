@@ -1323,10 +1323,10 @@ class MountService extends IMountService.Stub
             setUmsEnabling(enable);
             UmsEnableCallBack umscb = new UmsEnableCallBack(path, method, true);
             mHandler.sendMessage(mHandler.obtainMessage(H_UNMOUNT_PM_UPDATE, umscb));
-            //fighter++
+            //sate210++
             UmsEnableCallBack umscb_ext = new UmsEnableCallBack("/mnt/ext_sd", method, true);
             mHandler.sendMessage(mHandler.obtainMessage(H_UNMOUNT_PM_UPDATE, umscb_ext));            
-            //fighter--
+            //sate210--
             // Clear override
             setUmsEnabling(false);
         }
@@ -1339,13 +1339,13 @@ class MountService extends IMountService.Stub
                 Slog.e(TAG, "Failed to remount " + path +
                         " after disabling share method " + method);
                       }
-            //fighter++
+            //sate210++
             doShareUnshareVolume("/mnt/ext_sd", method, enable);
             if (doMountVolume("/mnt/ext_sd") != StorageResultCode.OperationSucceeded) {
                 Slog.e(TAG, "Failed to remount " + "/mnt/ext_sd" +
                         " after disabling share method " + method);  
                       }
-            //fighter--            
+            //sate210--            
                 /*
                  * Even though the mount failed, the unshare didn't so don't indicate an error.
                  * The mountVolume() call will have set the storage state and sent the necessary

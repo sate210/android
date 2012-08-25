@@ -25,9 +25,9 @@
 
 #define LOG_TAG "SecCamera"
 #define ALOGV LOGV
-//fighter++
+//sate210++
 #define LOGV LOGE
-//fighter--
+//sate210--
 #include <utils/Log.h>
 
 #include <math.h>
@@ -791,11 +791,11 @@ int SecCamera::startPreview(void)
 
     ALOGV("%s: got the first frame of the preview\n", __func__);
     
-    //fighter++
+    //sate210++
      if (m_camera_id == CAMERA_ID_BACK) {
      setFlashMode(m_params->flash_mode);
    	}
-    //fighter--
+    //sate210--
     return 0;
 }
 
@@ -1075,7 +1075,7 @@ int SecCamera::getPreviewPixelFormat(void)
 {
     return m_preview_v4lformat;
 }
-//fighter++
+//sate210++
 /*
 void startflash(void)
 该函数是为添加GC2015 flash 功能而添加的
@@ -1086,7 +1086,7 @@ void startflash(int fd)
          LOGE("ERR(%s):Fail on V4L2_CID_CAMERA_FLASH_MODE", __func__);
     }
 }
-//fighter--
+//sate210--
 
 // ======================================================================
 // Snapshot
@@ -1381,11 +1381,11 @@ int SecCamera::getSnapshotAndJpeg(unsigned char *yuv_buf, unsigned char *jpeg_bu
  //#if (BACK_CAMERA_FLAG_HW_UPDOWN_MIRROR == TRUE)
     setVerticalMirror(m_cam_fd);
 //#endif
-		//fighter++
+		//sate210++
 		if (m_camera_id == CAMERA_ID_BACK) {
 				startflash(m_cam_fd);
 		}
-		//fighter--
+		//sate210--
     ret = fimc_v4l2_streamon(m_cam_fd);
     CHECK(ret);
     LOG_TIME_END(1)
@@ -1942,7 +1942,7 @@ int SecCamera::setFlashMode(int flash_mode)
         return -1;
     }
 
-//fighter++
+//sate210++
 //    if (m_params->flash_mode != flash_mode) {
         m_params->flash_mode = flash_mode;
         if (m_flag_camera_start) {
@@ -1952,7 +1952,7 @@ int SecCamera::setFlashMode(int flash_mode)
             }
         }
 //    }
-//fighter--
+//sate210--
 
     return 0;
 }
@@ -2534,10 +2534,10 @@ int SecCamera::setFaceDetectLockUnlock(int facedetect_lockunlock)
 int SecCamera::setObjectPosition(int x, int y)
 {
     ALOGV("%s(setObjectPosition(x=%d, y=%d))", __func__, x, y);
-//fighter++
+//sate210++
  //   if (m_preview_width ==640)
  //       x = x - 80;
-//fighter--
+//sate210--
     if (fimc_v4l2_s_ctrl(m_cam_fd, V4L2_CID_CAMERA_OBJECT_POSITION_X, x) < 0) {
         LOGE("ERR(%s):Fail on V4L2_CID_CAMERA_OBJECT_POSITION_X", __func__);
         return -1;

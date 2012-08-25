@@ -86,10 +86,10 @@ public class PanoramaActivity extends ActivityBase implements
         MosaicRendererSurfaceViewRenderer.MosaicSurfaceCreateListener {
     public static final int DEFAULT_SWEEP_ANGLE = 160;
     public static final int DEFAULT_BLEND_MODE = Mosaic.BLENDTYPE_HORIZONTAL;
-    //fighter++
+    //sate210++
  //   public static final int DEFAULT_CAPTURE_PIXELS = 960 * 720;
     public static final int DEFAULT_CAPTURE_PIXELS = 640 * 480;
-    //fighter--
+    //sate210--
 
     private static final int MSG_LOW_RES_FINAL_MOSAIC_READY = 1;
     private static final int MSG_RESET_TO_PREVIEW_WITH_THUMBNAIL = 2;

@@ -367,12 +367,12 @@ public class PowerUsageSummary extends PreferenceFragment implements Runnable {
         BatteryHistoryPreference hist = new BatteryHistoryPreference(getActivity(), mStats);
         hist.setOrder(-1);
         mAppListGroup.addPreference(hist);
-//fighter++        
+//sate210++        
 //        if (mPowerProfile.getAveragePower(PowerProfile.POWER_SCREEN_FULL) < 10) {
 //            addNotAvailableMessage();
 //            return;
 //        }
-//fighter--
+//sate210--
         processAppUsage();
         processMiscUsage();
 

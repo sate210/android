@@ -51,7 +51,7 @@ import java.util.List;
  */
 public class UsbHostManager {
     private static final String TAG = UsbHostManager.class.getSimpleName();
-    private static final boolean LOG = false;//false fighter
+    private static final boolean LOG = false;//false sate210
 
     // contains all connected USB devices
     private final HashMap<String,UsbDevice> mDevices = new HashMap<String,UsbDevice>();
