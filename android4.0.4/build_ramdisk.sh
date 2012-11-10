@@ -42,19 +42,7 @@ function build_android()
 	rm -rf $OUT_DIR/system/modules/
 	rm -rf $OUT_DIR/system/build.prop
 	rm -rf $OUT_DIR/root/
-	
- 	echo Begin copy app
-	mkdir $OUT_DIR/system/app/
-	#mkdir $OUT_DIR/system/framework/
-	mkdir $OUT_DIR/system/lib/
-	
-	cp $APP_DIR/*.apk  									$OUT_DIR/system/app/
-	cp $APP_DIR/google/app/*.apk  			$OUT_DIR/system/app/
-	cp $APP_DIR/google/etc/  						$OUT_DIR/system/etc/  -rf
-	cp $APP_DIR/google/framework/*  		$OUT_DIR/system/framework/
-	cp $APP_DIR/google/lib/*  					$OUT_DIR/system/lib/
-	cp $APP_DIR/google/tts/ 						$OUT_DIR/system/tts/  -rf
-
+		
 	if [ $SEC_PRODUCT = "generic" ]
 	then
 		echo make -j$CPU_JOB_NUM
