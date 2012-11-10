@@ -888,7 +888,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             if      (navBarOverride.equals("1")) mHasNavigationBar = false;
             else if (navBarOverride.equals("0")) mHasNavigationBar = true;
         }
-
+        /*fighter++
+			Slog.e(TAG, "mHasNavigationBar = "+mHasNavigationBar+"   mNavigationBarHeight = "+ mContext.getResources().getDimensionPixelSize(
+                    com.android.internal.R.dimen.navigation_bar_height)+"  mNavigationBarWidth = "+ mContext.getResources().getDimensionPixelSize(
+                    com.android.internal.R.dimen.navigation_bar_width) + "++++++++++++++++++++++++++++");
+        */
         mNavigationBarHeight = mHasNavigationBar
                 ? mContext.getResources().getDimensionPixelSize(
                     com.android.internal.R.dimen.navigation_bar_height)
@@ -1793,7 +1797,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             // before launching home
             mKeyguardMediator.verifyUnlock(new OnKeyguardExitResult() {
                 public void onKeyguardExitResult(boolean success) {
-                    if (success) {
+//sate210++
+//                    if (success) {
+//											if (1) 
+											{
+//sate210--
                         try {
                             ActivityManagerNative.getDefault().stopAppSwitches();
                         } catch (RemoteException e) {

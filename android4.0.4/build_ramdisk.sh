@@ -1,27 +1,16 @@
 #!/bin/bash
 
-JAVA_HOME=/home/cyt/share/android/jdk1.6.0_34
-#JAVA_HOME=/home/fighter/work/usr
-ANDROID_JAVA_HOME=$JAVA_HOME
-PATH=$JAVA_HOME/bin:$PATH
-
 #COMPILE_USES_32BIT=true
 #export COMPILE_USES_32BIT
 
-#export USE_CCACHE=1
-#export CCACHE_DIR=/home/cuiyongtai/CACHE_andrid4.0.3
 
 CPU_JOB_NUM=$(grep processor /proc/cpuinfo | awk '{field=$NF};END{print field+1}')
 CLIENT=$(whoami)
 CPU_JOB_NUM=2
 
 ROOT_DIR=$(pwd)
-#KERNEL_DIR=/root/s5pv210/kernel/android_kernel_2.6.35_skdv210
-#APP_DIR=/home/fighter/work/android4.0/disk2/s5pv210_ics/android4.0.4/device/samsung/smdkv210/app
 
-#SEC_PRODUCT='generic' #Enable for generic build
 SEC_PRODUCT='smdkv210' #Enable for smdk build
-#SEC_PRODUCT='A9' #Enable for sekede build
 
 #Modify the below path suitably as per your requirements
 
@@ -142,11 +131,6 @@ case "$SEC_PRODUCT" in
 		build_android
 		make_uboot_img
 #		make_fastboot_img
-		;;
-	A9)
-		build_android
-		make_uboot_img
-		make_fastboot_img
 		;;
 	generic)
 		build_android

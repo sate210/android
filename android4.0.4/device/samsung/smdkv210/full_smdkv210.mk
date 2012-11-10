@@ -24,5 +24,5 @@ $(call inherit-product, device/samsung/smdkv210/device.mk)
 PRODUCT_NAME := full_smdkv210
 PRODUCT_DEVICE := smdkv210
 PRODUCT_BRAND := Android
-PRODUCT_MODEL := A9           
-PRODUCT_MANUFACTURER := SKD     
+PRODUCT_MODEL := Sate210           
+PRODUCT_MANUFACTURER := Sate210     

@@ -17,7 +17,7 @@ ro.product.manufacturer=sate210
 ro.product.model=sate210
 ro.product.name=sate210
 
-ro.sf.lcd_density=160
+ro.sf.lcd_density=114
 persist.sys.language=zh
 persist.sys.country=CN
 persist.sys.timezone=Asia/Shanghai
@@ -47,4 +47,5 @@ ro.additionalmounts=/mnt/sdcard/sdcard_ext;/mnt/usb_disk
 persist.sys.strictmode.visual=0
 persist.sys.strictmode.disable=1
 
+qemu.hw.mainkeys=1
 persist.sys.usb.config=mass_storage,adb

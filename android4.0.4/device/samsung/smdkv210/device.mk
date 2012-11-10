@@ -125,6 +125,23 @@ PRODUCT_COPY_FILES += \
 #frameworks/base/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml 
 #	frameworks/base/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml 
 
+BOARD_USES_HIGH_RESOLUTION_LCD := true
+
+ifeq ($(BOARD_USES_HIGH_RESOLUTION_LCD),true)
+PRODUCT_CHARACTERISTICS := tablet
+PRODUCT_COPY_FILES += \
+frameworks/base/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml
+$(call inherit-product, frameworks/base/build/tablet-dalvik-heap.mk) 
+else 
+PRODUCT_CHARACTERISTICS := phone
+PRODUCT_COPY_FILES += \ 
+frameworks/base/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml 
+$(call inherit-product, frameworks/base/build/phone-hdpi-512-dalvik-heap.mk)
+PRODUCT_PROPERTY_OVERRIDES +=\ 
+ro.sf.lcd_density=240     \
+PRODUCT_AAPT_CONFIG := normal hdpi 
+endif
+
 
 # Set default USB interface
 #	PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
