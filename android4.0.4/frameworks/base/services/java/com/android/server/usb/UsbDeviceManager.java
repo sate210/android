@@ -66,7 +66,7 @@ import java.util.Map;
 public class UsbDeviceManager {
 
     private static final String TAG = UsbDeviceManager.class.getSimpleName();
-    private static final boolean DEBUG = true;//sate210 false
+    private static final boolean DEBUG = false;//sate210 false
 //sate210++
 //    private static final String USB_STATE_MATCH =
 //            "DEVPATH=/devices/virtual/android_usb/android0";
@@ -147,10 +147,8 @@ public class UsbDeviceManager {
 							if(usb_state.equals("1"))
 							{
 								state = "CONNECTED";
-								if (DEBUG) Slog.d(TAG, "CONNECTED+++++++++++++++++++++++++++++++++++");
 							}else{
 								state = "DISCONNECTED";
-								if (DEBUG) Slog.d(TAG, "DISCONNECTED----------------------------------------");
 							}
 					}catch (IOException e) {
                 Slog.v(TAG,"IOException: " + e);
@@ -309,9 +307,17 @@ public class UsbDeviceManager {
                     Slog.w(TAG, "resetting config to persistent property: " + mDefaultFunctions);
                     SystemProperties.set("sys.usb.config", mDefaultFunctions);
                 }
-
+								
                 mCurrentFunctions = mDefaultFunctions;
                 String state = FileUtils.readTextFile(new File(STATE_PATH), 0, null).trim();
+                //sate210++
+               if(state.equals("1"))
+							{
+								state = "CONNECTED";
+							}else{
+								state = "DISCONNECTED";
+							}
+               //sate210--
                 updateState(state);
                 mAdbEnabled = containsFunction(mCurrentFunctions, UsbManager.USB_FUNCTION_ADB);
 
