@@ -34,14 +34,7 @@ function build_android()
 	
 	START_TIME=`date +%s`
 
-	rm -rf $OUT_DIR/system/lib/*ril.so
-	rm -rf $OUT_DIR/system/vendor
-	rm -rf $OUT_DIR/system/etc/
-	rm -rf $OUT_DIR/system/lib/
-	rm -rf $OUT_DIR/system/app/
-	rm -rf $OUT_DIR/system/modules/
-	rm -rf $OUT_DIR/system/build.prop
-	rm -rf $OUT_DIR/root/
+	
 		
 	if [ $SEC_PRODUCT = "generic" ]
 	then
