@@ -90,9 +90,9 @@ FramebufferNativeWindow::FramebufferNativeWindow()
         err = framebuffer_open(module, &fbDev);
         LOGE_IF(err, "couldn't open framebuffer HAL (%s)", strerror(-err));
         
-        LOGE_IF(err, "module->name = %s +++++++++++++++++++\n", module->name);
-        LOGE_IF(err, "module->author = %s +++++++++++++++++++\n", module->author);
-        LOGE_IF(err, "module->methods = %s +++++++++++++++++++\n", (module->methods==NULL)?"NULL":"NOT NULL");
+//        LOGE_IF(err, "module->name = %s \n", module->name);
+//        LOGE_IF(err, "module->author = %s \n", module->author);
+//        LOGE_IF(err, "module->methods = %s \n", (module->methods==NULL)?"NULL":"NOT NULL");
        
         err = gralloc_open(module, &grDev);
         LOGE_IF(err, "couldn't open gralloc HAL (%s)", strerror(-err));

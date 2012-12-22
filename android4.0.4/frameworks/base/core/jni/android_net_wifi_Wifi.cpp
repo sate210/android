@@ -48,19 +48,19 @@ static int read_wifi_state()
     fd_state = open(WIFI_SUPPEND_STATE, O_RDWR);
     if(fd_state < 0)
     	{
-    		LOGE("open %s failed+++++++++++++\n",WIFI_SUPPEND_STATE);
+    		LOGE("open %s failed\n",WIFI_SUPPEND_STATE);
         return -1;
       }
     ret = read(fd_state, buffer, 1);
     if(ret < 0)
     	{
-    		LOGE("read %s failed+++++++++++++\n",WIFI_SUPPEND_STATE);
+    		LOGE("read %s failed\n",WIFI_SUPPEND_STATE);
     		close(fd_state);
         return -1;
       } 
     close(fd_state);
     if(DEBUG)
-    	LOGE("buffer[0] = %d +++++++++++++++++++++\n",buffer[0]- '0');
+    	LOGE("buffer[0] = %d \n",buffer[0]- '0');
     nwr = buffer[0]- '0';
     return nwr;
 }
@@ -72,7 +72,7 @@ static int write_wifi_state(int value)
     fd_state = open(WIFI_SUPPEND_STATE, O_RDWR);
     if(fd_state < 0)
     	{
-    		LOGE("open %s failed+++++++++++++\n",WIFI_SUPPEND_STATE);
+    		LOGE("open %s failed\n",WIFI_SUPPEND_STATE);
         return -1;
       }
 
@@ -80,7 +80,7 @@ static int write_wifi_state(int value)
     ret = write(fd_state, buffer, nwr);
     if(ret < 0)
     	{
-    		LOGE("write %s failed+++++++++++++\n",WIFI_SUPPEND_STATE);
+    		LOGE("write %s failed\n",WIFI_SUPPEND_STATE);
     		close(fd_state);
         return -1;
       }
@@ -99,7 +99,7 @@ static int set_3g_power(int value)
     fd_state = open(POWER_3G_VALUE, O_RDWR);
     if(fd_state < 0)
     	{
-    		LOGE("open %s failed+++++++++++++\n",POWER_3G_VALUE);
+    		LOGE("open %s failed\n",POWER_3G_VALUE);
         return -1;
       }
 
@@ -107,7 +107,7 @@ static int set_3g_power(int value)
     ret = write(fd_state, buffer, nwr);
     if(ret < 0)
     	{
-    		LOGE("write %s failed+++++++++++++\n",POWER_3G_VALUE);
+    		LOGE("write %s failed\n",POWER_3G_VALUE);
     		close(fd_state);
         return -1;
       }
@@ -191,63 +191,63 @@ static jstring doStringCommand(JNIEnv* env, const char* fmt, ...) {
 static jboolean android_net_wifi_isDriverLoaded(JNIEnv* env, jobject)
 {
 		if(1 == DEBUG)
-		LOGE("%s++++++++++++++++++++++++\n",__func__);
+		LOGE("%s+++\n",__func__);
     return (jboolean)(::is_wifi_driver_loaded() == 1);
 }
 
 static jboolean android_net_wifi_loadDriver(JNIEnv* env, jobject)
 {
 		if(1 == DEBUG)
-		LOGE("%s++++++++++++++++++++++++\n",__func__);
+		LOGE("%s+++\n",__func__);
     return (jboolean)(::wifi_load_driver() == 0);
 }
 
 static jboolean android_net_wifi_unloadDriver(JNIEnv* env, jobject)
 {
 		if(1 == DEBUG)
-		LOGE("%s++++++++++++++++++++++++\n",__func__);
+		LOGE("%s+++\n",__func__);
     return (jboolean)(::wifi_unload_driver() == 0);
 }
 
 static jboolean android_net_wifi_startSupplicant(JNIEnv* env, jobject)
 {
 		if(1 == DEBUG)
-		LOGE("%s++++++++++++++++++++++++\n",__func__);
+		LOGE("%s+++\n",__func__);
     return (jboolean)(::wifi_start_supplicant() == 0);
 }
 
 static jboolean android_net_wifi_startP2pSupplicant(JNIEnv* env, jobject)
 {
 		if(1 == DEBUG)
-		LOGE("%s++++++++++++++++++++++++\n",__func__);
+		LOGE("%s+++\n",__func__);
     return (jboolean)(::wifi_start_p2p_supplicant() == 0);
 }
 
 static jboolean android_net_wifi_stopSupplicant(JNIEnv* env, jobject)
 {
 		if(1 == DEBUG)
-		LOGE("%s++++++++++++++++++++++++\n",__func__);
+		LOGE("%s+++\n",__func__);
     return doBooleanCommand("OK", "TERMINATE");
 }
 
 static jboolean android_net_wifi_killSupplicant(JNIEnv* env, jobject)
 {
 		if(1 == DEBUG)
-		LOGE("%s++++++++++++++++++++++++\n",__func__);
+		LOGE("%s\n",__func__);
     return (jboolean)(::wifi_stop_supplicant() == 0);
 }
 
 static jboolean android_net_wifi_connectToSupplicant(JNIEnv* env, jobject)
 {
 		if(1 == DEBUG)
-		LOGE("%s++++++++++++++++++++++++\n",__func__);
+		LOGE("%s\n",__func__);
     return (jboolean)(::wifi_connect_to_supplicant() == 0);
 }
 
 static void android_net_wifi_closeSupplicantConnection(JNIEnv* env, jobject)
 {
 		if(1 == DEBUG)
-		LOGE("%s++++++++++++++++++++++++\n",__func__);
+		LOGE("%s\n",__func__);
     ::wifi_close_supplicant_connection();
 }
 
@@ -266,7 +266,7 @@ static jstring android_net_wifi_waitForEvent(JNIEnv* env, jobject)
 static jstring android_net_wifi_listNetworksCommand(JNIEnv* env, jobject)
 {
 		if(1 == DEBUG)
-		LOGE("%s++++++++++++++++++++++++\n",__func__);
+		LOGE("%s\n",__func__);
 		//sate210++
 	//	doIntCommand("ADD_NETWORK");
 	//sate210--
@@ -276,7 +276,7 @@ static jstring android_net_wifi_listNetworksCommand(JNIEnv* env, jobject)
 static jint android_net_wifi_addNetworkCommand(JNIEnv* env, jobject)
 {
 		if(1 == DEBUG)
-		LOGE("%s++++++++++++++++++++++++\n",__func__);
+		LOGE("%s\n",__func__);
     return doIntCommand("ADD_NETWORK");
 }
 
@@ -353,7 +353,7 @@ static jstring android_net_wifi_getNetworkVariableCommand(JNIEnv* env,
 static jboolean android_net_wifi_removeNetworkCommand(JNIEnv* env, jobject, jint netId)
 {
 		if(1 == DEBUG)
-		LOGE("%s++++++++++++++++++++++++\n",__func__);
+		LOGE("%s\n",__func__);
     return doBooleanCommand("OK", "REMOVE_NETWORK %d", netId);
 }
 
@@ -368,48 +368,48 @@ static jboolean android_net_wifi_enableNetworkCommand(JNIEnv* env,
 static jboolean android_net_wifi_disableNetworkCommand(JNIEnv* env, jobject, jint netId)
 {
 		if(1 == DEBUG)
-		LOGE("%s++++++++++++++++++++++++\n",__func__);
+		LOGE("%s\n",__func__);
     return doBooleanCommand("OK", "DISABLE_NETWORK %d", netId);
 }
 
 static jstring android_net_wifi_statusCommand(JNIEnv* env, jobject)
 {
 		if(1 == DEBUG)
-		LOGE("%s++++++++++++++++++++++++\n",__func__);
+		LOGE("%s\n",__func__);
     return doStringCommand(env, "STATUS");
 }
 
 static jboolean android_net_wifi_pingCommand(JNIEnv* env, jobject)
 {
 		if(1 == DEBUG)
-		LOGE("%s++++++++++++++++++++++++\n",__func__);
+		LOGE("%s\n",__func__);
     return doBooleanCommand("PONG", "PING");
 }
 
 static jstring android_net_wifi_scanResultsCommand(JNIEnv* env, jobject)
 {
 		if(1 == DEBUG)
-		LOGE("%s++++++++++++++++++++++++\n",__func__);
+		LOGE("%s\n",__func__);
     return doStringCommand(env, "SCAN_RESULTS");
 }
 
 static jboolean android_net_wifi_disconnectCommand(JNIEnv* env, jobject)
 {
 	if(1 == DEBUG)
-		LOGE("%s++++++++++++++++++++++++\n",__func__);
+		LOGE("%s\n",__func__);
     return doBooleanCommand("OK", "DISCONNECT");
 }
 
 static jboolean android_net_wifi_reconnectCommand(JNIEnv* env, jobject)
 {
 	if(1 == DEBUG)
-		LOGE("%s++++++++++++++++++++++++\n",__func__);
+		LOGE("%s\n",__func__);
     return doBooleanCommand("OK", "RECONNECT");
 }
 static jboolean android_net_wifi_reassociateCommand(JNIEnv* env, jobject)
 {
 	if(1 == DEBUG)
-		LOGE("%s++++++++++++++++++++++++\n",__func__);
+		LOGE("%s\n",__func__);
     return doBooleanCommand("OK", "REASSOCIATE");
 }
 
@@ -441,14 +441,14 @@ static jboolean android_net_wifi_setScanModeCommand(JNIEnv* env, jobject, jboole
 static jboolean android_net_wifi_startDriverCommand(JNIEnv* env, jobject)
 {
 		if(1 == DEBUG)
-		LOGE("%s++++++++++++++++++++++++\n",__func__);
+		LOGE("%s\n",__func__);
     return doBooleanCommand("OK", "DRIVER START");
 }
 
 static jboolean android_net_wifi_stopDriverCommand(JNIEnv* env, jobject)
 {
 		if(1 == DEBUG)
-		LOGE("%s++++++++++++++++++++++++\n",__func__);
+		LOGE("%s\n",__func__);
     return doBooleanCommand("OK", "DRIVER STOP");
 }
 
@@ -550,7 +550,7 @@ static jstring android_net_wifi_getMacAddressCommand(JNIEnv* env, jobject)
 static jboolean android_net_wifi_setPowerModeCommand(JNIEnv* env, jobject, jint mode)
 {
 		if(1 == DEBUG)
-		LOGE("%s++++++++++++++++++++++++\n",__func__);
+		LOGE("%s\n",__func__);
     return doBooleanCommand("OK", "DRIVER POWERMODE %d", mode);
 }
 
@@ -573,7 +573,7 @@ static jint android_net_wifi_getPowerModeCommand(JNIEnv* env, jobject)
 static jboolean android_net_wifi_setBandCommand(JNIEnv* env, jobject, jint band)
 {
 		if(1 == DEBUG)
-		LOGE("%s++++++++++++++++++++++++\n",__func__);
+		LOGE("%s\n",__func__);
     return doBooleanCommand("OK", "DRIVER SETBAND %d", band);
 }
 
@@ -594,21 +594,21 @@ static jint android_net_wifi_getBandCommand(JNIEnv* env, jobject)
 static jboolean android_net_wifi_setBluetoothCoexistenceModeCommand(JNIEnv* env, jobject, jint mode)
 {
 		if(1 == DEBUG)
-		LOGE("%s++++++++++++++++++++++++\n",__func__);
+		LOGE("%s\n",__func__);
     return doBooleanCommand("OK", "DRIVER BTCOEXMODE %d", mode);
 }
 
 static jboolean android_net_wifi_setBluetoothCoexistenceScanModeCommand(JNIEnv* env, jobject, jboolean setCoexScanMode)
 {
 		if(1 == DEBUG)
-		LOGE("%s++++++++++++++++++++++++\n",__func__);
+		LOGE("%s\n",__func__);
     return doBooleanCommand("OK", "DRIVER BTCOEXSCAN-%s", setCoexScanMode ? "START" : "STOP");
 }
 
 static jboolean android_net_wifi_saveConfigCommand(JNIEnv* env, jobject)
 {
 		if(1 == DEBUG)
-		LOGE("%s++++++++++++++++++++++++\n",__func__);
+		LOGE("%s\n",__func__);
     // Make sure we never write out a value for AP_SCAN other than 1
     (void)doBooleanCommand("OK", "AP_SCAN 1");
     return doBooleanCommand("OK", "SAVE_CONFIG");
@@ -617,14 +617,14 @@ static jboolean android_net_wifi_saveConfigCommand(JNIEnv* env, jobject)
 static jboolean android_net_wifi_reloadConfigCommand(JNIEnv* env, jobject)
 {
 		if(1 == DEBUG)
-		LOGE("%s++++++++++++++++++++++++\n",__func__);
+		LOGE("%s\n",__func__);
     return doBooleanCommand("OK", "RECONFIGURE");
 }
 
 static jboolean android_net_wifi_setScanResultHandlingCommand(JNIEnv* env, jobject, jint mode)
 {
 		if(1 == DEBUG)
-		LOGE("%s++++++++++++++++++++++++\n",__func__);
+		LOGE("%s\n",__func__);
     return doBooleanCommand("OK", "AP_SCAN %d", mode);
 }
 
@@ -640,14 +640,14 @@ static jboolean android_net_wifi_addToBlacklistCommand(JNIEnv* env, jobject, jst
 static jboolean android_net_wifi_clearBlacklistCommand(JNIEnv* env, jobject)
 {
 		if(1 == DEBUG)
-		LOGE("%s++++++++++++++++++++++++\n",__func__);
+		LOGE("%s\n",__func__);
     return doBooleanCommand("OK", "BLACKLIST clear");
 }
 
 static jboolean android_net_wifi_setSuspendOptimizationsCommand(JNIEnv* env, jobject, jboolean enabled)
 {
 		if(1 == DEBUG)
-		LOGE("%s++++++++++++++++++++++++\n",__func__);
+		LOGE("%s\n",__func__);
 		//sate210++
 		if(read_wifi_state())
 		{
@@ -666,7 +666,7 @@ static jboolean android_net_wifi_setSuspendOptimizationsCommand(JNIEnv* env, job
 static jboolean android_net_3g_setpower(JNIEnv* env, jobject, jboolean enabled)
 {
 		if(1 == DEBUG)
-		LOGE("%s++++++++++++++++++++++++\n",__func__);
+		LOGE("%s\n",__func__);
 		set_3g_power((enabled ? 1 : 0));
 		return 0;
 }
@@ -675,7 +675,7 @@ static jboolean android_net_3g_setpower(JNIEnv* env, jobject, jboolean enabled)
 static void android_net_wifi_enableBackgroundScanCommand(JNIEnv* env, jobject, jboolean enable)
 {
 		if(1 == DEBUG)
-		LOGE("%s++++++++++++++++++++++++\n",__func__);
+		LOGE("%s\n",__func__);
     //Note: BGSCAN-START and BGSCAN-STOP are documented in core/res/res/values/config.xml
     //and will need an update if the names are changed
     if (enable) {
@@ -688,7 +688,7 @@ static void android_net_wifi_enableBackgroundScanCommand(JNIEnv* env, jobject, j
 static void android_net_wifi_setScanIntervalCommand(JNIEnv* env, jobject, jint scanInterval)
 {
 		if(1 == DEBUG)
-		LOGE("%s++++++++++++++++++++++++\n",__func__);
+		LOGE("%s\n",__func__);
     doBooleanCommand("OK", "SCAN_INTERVAL %d", scanInterval);
 }
 

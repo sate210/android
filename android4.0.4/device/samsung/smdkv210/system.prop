@@ -17,7 +17,7 @@ ro.product.manufacturer=sate210
 ro.product.model=sate210
 ro.product.name=sate210
 
-ro.sf.lcd_density=114
+ro.sf.lcd_density=120
 persist.sys.language=zh
 persist.sys.country=CN
 persist.sys.timezone=Asia/Shanghai

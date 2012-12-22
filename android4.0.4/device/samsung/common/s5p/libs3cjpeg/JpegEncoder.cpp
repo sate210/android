@@ -139,6 +139,7 @@ jpg_return_status JpegEncoder::setConfig(jpeg_conf type, int32_t value)
         break;
 
     case JPEG_SET_THUMBNAIL_WIDTH:
+    		LOGE("value(%d) ,MAX_JPG_THUMBNAIL_WIDTH = %d ++++++++++++++++++++++++++", value, MAX_JPG_THUMBNAIL_WIDTH);
         if (value < 0 || value > MAX_JPG_THUMBNAIL_WIDTH)
             ret = JPG_FAIL;
         else
@@ -146,6 +147,7 @@ jpg_return_status JpegEncoder::setConfig(jpeg_conf type, int32_t value)
         break;
 
     case JPEG_SET_THUMBNAIL_HEIGHT:
+    	LOGE("value(%d) ,MAX_JPG_THUMBNAIL_HEIGHT = %d ++++++++++++++++++++++++++", value, MAX_JPG_THUMBNAIL_HEIGHT);
         if (value < 0 || value > MAX_JPG_THUMBNAIL_HEIGHT)
             ret = JPG_FAIL;
         else

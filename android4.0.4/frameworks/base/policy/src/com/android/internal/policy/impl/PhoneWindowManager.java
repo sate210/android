@@ -888,11 +888,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             if      (navBarOverride.equals("1")) mHasNavigationBar = false;
             else if (navBarOverride.equals("0")) mHasNavigationBar = true;
         }
-        /*fighter++
-			Slog.e(TAG, "mHasNavigationBar = "+mHasNavigationBar+"   mNavigationBarHeight = "+ mContext.getResources().getDimensionPixelSize(
-                    com.android.internal.R.dimen.navigation_bar_height)+"  mNavigationBarWidth = "+ mContext.getResources().getDimensionPixelSize(
-                    com.android.internal.R.dimen.navigation_bar_width) + "++++++++++++++++++++++++++++");
-        */
+
         mNavigationBarHeight = mHasNavigationBar
                 ? mContext.getResources().getDimensionPixelSize(
                     com.android.internal.R.dimen.navigation_bar_height)

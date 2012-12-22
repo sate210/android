@@ -17,11 +17,7 @@
 */
 
 #define LOG_NDEBUG 0
-//sate210++
-//#define LOGE LOGV
-//sate210--
 #define LOG_TAG "CameraHardwareSec"
-//#define LOGE LOGV
 
 #include <utils/Log.h>
 
@@ -161,40 +157,23 @@ void CameraHardwareSec::initDefaultParameters(int cameraId)
     int preview_max_height  = 0;
     int snapshot_max_width  = 0;
     int snapshot_max_height = 0;
-//sate210++
-//    if (cameraId == SecCamera::CAMERA_ID_BACK) {
-//        p.set(CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES,
-//              "720x480,640x480,352x288,176x144");
-//        p.set(CameraParameters::KEY_SUPPORTED_PICTURE_SIZES,
-//			"640x480");
-//        p.set(CameraParameters::KEY_SUPPORTED_VIDEO_SIZES,
-//			"720x480,640x480,176x144");
-//    } else {
-//        p.set(CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES,
-//              "640x480,320x240,176x144");
-//        p.set(CameraParameters::KEY_SUPPORTED_PICTURE_SIZES,
-//              "640x480");
-//        p.set(CameraParameters::KEY_SUPPORTED_VIDEO_SIZES,
-//        	"720x480,640x480,176x144");
-//    }
 
-    if (cameraId == SecCamera::CAMERA_ID_BACK) {
+		if(!strncmp((const char*)mCameraSensorName, "OV3640", 8)) {
         p.set(CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES,
               "640x480");
         p.set(CameraParameters::KEY_SUPPORTED_PICTURE_SIZES,
-			"1600x1200,1280x960,640x480");
+			"2048x1536,1600x1200,640x480");
         p.set(CameraParameters::KEY_SUPPORTED_VIDEO_SIZES,
 			"640x480");
-    } else {
+    }
+    if(!strncmp((const char*)mCameraSensorName, "TVP5150", 8)){
         p.set(CameraParameters::KEY_SUPPORTED_PREVIEW_SIZES,
              "640x480");
         p.set(CameraParameters::KEY_SUPPORTED_PICTURE_SIZES,
-              "1600x1200,1280x960,640x480");
+              "720x288,640x480");
         p.set(CameraParameters::KEY_SUPPORTED_VIDEO_SIZES,
         	"640x480");
     }
-    
-//sate210--
     p.getSupportedPreviewSizes(mSupportedPreviewSizes);
 
     // If these fail, then we are using an invalid cameraId and we'll leave the

@@ -28,8 +28,8 @@
 #include "Exif.h"
 
 namespace android {
-#define MAX_JPG_WIDTH                   1600//800
-#define MAX_JPG_HEIGHT                  1200//480
+#define MAX_JPG_WIDTH                   2592//800
+#define MAX_JPG_HEIGHT                  1944//480
 #define MAX_JPG_RESOLUTION              (MAX_JPG_WIDTH * MAX_JPG_HEIGHT)
 
 #define MAX_JPG_THUMBNAIL_WIDTH         320
@@ -37,8 +37,8 @@ namespace android {
 #define MAX_JPG_THUMBNAIL_RESOLUTION    (MAX_JPG_THUMBNAIL_WIDTH *  \
                                             MAX_JPG_THUMBNAIL_HEIGHT)
 
-#define MAX_RGB_WIDTH                   1600//800
-#define MAX_RGB_HEIGHT                  1200//480
+#define MAX_RGB_WIDTH                   2592//800
+#define MAX_RGB_HEIGHT                  1944//480
 #define MAX_RGB_RESOLUTION              (MAX_RGB_WIDTH * MAX_RGB_HEIGHT)
 
 /*******************************************************************************/
