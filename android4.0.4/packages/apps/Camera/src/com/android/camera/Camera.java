@@ -1462,24 +1462,9 @@ public class Camera extends ActivityBase implements FocusManager.Listener,
             mFocusManager.onShutterUp();
         }
     }
-    
-    // lzg record the last snapshot timer
-    private static long mLastSnapshotTime = 0;
-    
+
     @Override
     public void onShutterButtonClick() {
-        // lzg decide twice snapshot time > 1000(ms)
-        long curr = System.currentTimeMillis();
-    	Log.d(TAG, "---------------------------- currtime=" + curr +
-    		    "mLasttime=" + mLastSnapshotTime +"-------------------------");        
-        
-        if(curr - mLastSnapshotTime < 1800)
-        {
-        	Log.e(TAG,"--------------------- less 1000(ms) will be cancel------------------------");
-        	return;
-        }
-       	mLastSnapshotTime = System.currentTimeMillis();    	
-    	
         if (mPausing || collapseCameraControls()) return;
 
         // Do not take the picture if there is not enough storage.

@@ -100,7 +100,7 @@ class WifiConfigStore {
 
     private static Context sContext;
     private static final String TAG = "WifiConfigStore";
-    private static final boolean DBG = true;//
+    private static final boolean DBG = false;
 
     /* configured networks with network id as the key */
     private static HashMap<Integer, WifiConfiguration> sConfiguredNetworks =

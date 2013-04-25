@@ -86,7 +86,7 @@ import com.android.internal.R;
 
 public class WifiService extends IWifiManager.Stub {
     private static final String TAG = "WifiService";
-    private static final boolean DBG = true;//sate210
+    private static final boolean DBG = false;
 
     private final WifiStateMachine mWifiStateMachine;
 
@@ -360,7 +360,7 @@ public class WifiService extends IWifiManager.Stub {
     WifiService(Context context) {
         mContext = context;
 
-        mInterfaceName =  SystemProperties.get("wifi.interface", "eth0");//sate210 wlan0
+        mInterfaceName =  SystemProperties.get("wifi.interface", "eth0");
 
         mWifiStateMachine = new WifiStateMachine(mContext, mInterfaceName);
         mWifiStateMachine.enableRssiPolling(true);

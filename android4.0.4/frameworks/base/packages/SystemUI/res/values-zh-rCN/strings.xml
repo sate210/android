@@ -140,4 +140,6 @@
     <string name="gps_notification_searching_text" msgid="8574247005642736060">"正在搜索 GPS"</string>
     <string name="gps_notification_found_text" msgid="4619274244146446464">"已通过 GPS 确定位置"</string>
     <string name="accessibility_clear_all" msgid="5235938559247164925">"清除所有通知。"</string>
+    <string name="ethernet_link">以太网已连接</string>
+    <string name="ethernet_description">以太网</string>
 </resources>

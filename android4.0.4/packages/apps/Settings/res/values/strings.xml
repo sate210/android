@@ -3783,27 +3783,32 @@ found in the list of installed apps.</string>
     <string name="additional_system_update_settings_list_item_title">Additional system updates</string>
 
 
-<!--luozhigang -->
-    <string name="system_rom_update_title">System update</string>
-    <string name="system_rom_update_summary">Check System ROM version and Update</string>
-    <string name="system_rom_update_check">Check System update</string>
-    <string name="system_rom_update_invoke">Update Now</string>
-    <string name="system_rom_update_are_you_check">Find the new ROM file,do you want download it?</string>
-    <string name="system_rom_update_tips">Prompt</string>
-    <string name="system_rom_update_affirm">OK</string>
-    <string name="system_rom_update_cancel">Cancel</string>
-    <string name="system_rom_update_dev_error">Device Error</string>
-    <string name="system_rom_update_sys_update">System update</string>
-    <string name="system_rom_update_down_package">download ROM package file</string>
-    <string name="system_rom_update_update">Update</string>
-    <string name="system_rom_update_affirm_update">Do you want update system now?</string>
-    <string name="system_rom_update_local_noexist">the ROM package file not found! please check it!</string>
+    <string name="eth_settings_title">Ethernet</string>
+    <string name="eth_toggle_title">Use Ethernet</string>
+    <string name="eth_settings">Ethernet Settings</string>
+    <string name="eth_devices">Ethernet Devices</string>
+    <string name="eth_conf">Ethernet Configure</string>
+    <string name="eth_ip_address">IP Address</string>
+    <string name="eth_ip_string">0.0.0.0</string>
+    <string name="eth_mac_address">MAC Address</string>
+    <string name="eth_mac_string">00:00:00:00:00:00</string>
+    <string name="eth_advanced_configure">Advanced Configure</string>
+    <string name="eth_mask_address">Mask Address</string>
+    <string name="eth_dns_address">DNS Server</string>
+    <string name="eth_gw_address">GateWay</string>
+    <string name="eth_dhcp_choice">DHCP</string>
+    <string name="eth_dev_more">None Device</string>
+    <string name="eth_dev_summaryoff">DISCONNECTED</string>
+    <string name="eth_dev_summaryon">CONNECTED -- USED DEVICE: </string>
+    <string name="eth_link_status">Link Status</string>
+    <string name="eth_link_mode">Link Mode</string>
+    <string name="eth_ip_mode">IP Mode: </string>
+    <string name="eth_dhcp_mode">DHCP</string>
+    <string name="eth_manual_mode">MANUAL</string>
+    <string name="eth_ok">Ok</string>
+    <string name="eth_cancel">Cancel</string>
+    <string name="eth_advand">Advand</string>
+    <string name="eth_message">Are you apply this device?</string>
 
-    <string name="system_rom_update_net_error">Please check the network£¡</string>
-    <string name="system_rom_update_noupdate">There is no update!</string>
-    <string name="system_rom_update_sdcard_notexist">Ext_sdcard device not exist</string>
-    <string name="system_rom_update_file_notexist">Update file not exist</string>
-       <string name="system_rom_update_please_wait">Please wait!</string>
-<!--luozhigang -->    
 
 </resources>

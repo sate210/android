@@ -1558,9 +1558,6 @@ endef
 #Note that the version numbers are given to aapt as simple default
 #values; applications can override these by explicitly stating
 #them in their manifest.
-#fighter++
-#TARGET_AAPT_CHARACTERISTICS := tablet
-#fighter--
 define add-assets-to-package
 $(hide) $(AAPT) package -u $(PRIVATE_AAPT_FLAGS) \
     $(addprefix -c , $(PRIVATE_PRODUCT_AAPT_CONFIG)) \

@@ -107,7 +107,7 @@ public class WifiStateMachine extends StateMachine {
 
     private static final String TAG = "WifiStateMachine";
     private static final String NETWORKTYPE = "WIFI";
-    private static final boolean DBG = true;//sate210
+    private static final boolean DBG = false;
 
     /* TODO: This is no more used with the hostapd code. Clean up */
     private static final String SOFTAP_IFACE = "wl0.1";
@@ -1621,11 +1621,6 @@ public class WifiStateMachine extends StateMachine {
     private void handleNetworkDisconnect() {
         if (DBG) log("Stopping DHCP and clearing IP");
 
-//sate210++
-        /* In case we were in middle of DHCP operation
-           restore back powermode */
-     //   handlePostDhcpSetup();
-//sate210--
         /*
          * stop DHCP
          */

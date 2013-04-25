@@ -1581,4 +1581,31 @@
     <string name="percentage" msgid="5866131581207788624">"<xliff:g id="NUMBER">%d</xliff:g>%%"</string>
     <string name="additional_system_update_settings_list_item_title" msgid="214987609894661992">"其他系统更新"</string>
 
+    <string name="eth_settings_title">以太网</string>
+    <string name="eth_toggle_title">使用以太网</string>
+    <string name="eth_settings">以太网设置</string>
+    <string name="eth_devices">以太网设备</string>
+    <string name="eth_conf">以太网配置</string>
+    <string name="eth_ip_address">IP地址</string>
+    <string name="eth_ip_string">0.0.0.0</string>
+    <string name="eth_mac_address">物理地址</string>
+    <string name="eth_mac_string">00:00:00:00:00:00</string>
+    <string name="eth_advanced_configure">高级配置</string>
+    <string name="eth_mask_address">子网掩码</string>
+    <string name="eth_dns_address">DNS服务器</string>
+    <string name="eth_gw_address">默认网关</string>
+    <string name="eth_dhcp_choice">动态分配</string>
+    <string name="eth_dev_more">没有可用设备</string>
+    <string name="eth_dev_summaryoff">未连接</string>
+    <string name="eth_dev_summaryon">已连接 -- 使用设备: </string>
+    <string name="eth_link_status">Link Status</string>
+    <string name="eth_link_mode">Link Mode</string>
+    <string name="eth_ip_mode">IP模式: </string>
+    <string name="eth_dhcp_mode">动态</string>
+    <string name="eth_manual_mode">静态</string>
+    <string name="eth_ok">确定</string>
+    <string name="eth_cancel">取消</string>
+    <string name="eth_advand">高级</string>
+    <string name="eth_message">确定应用此配置到设备?</string>
+
 </resources>

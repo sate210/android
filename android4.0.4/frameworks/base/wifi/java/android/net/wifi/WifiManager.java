@@ -410,7 +410,10 @@ public class WifiManager {
     private static final int MIN_RSSI = -100;
 
     /** Anything better than or equal to this will show the max bars. */
-    private static final int MAX_RSSI = -55;
+
+//    private static final int MAX_RSSI = -55;
+    private static final int MAX_RSSI = -70;
+
 
     /**
      * Auto settings in the driver. The driver could choose to operate on both

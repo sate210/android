@@ -48,6 +48,7 @@ import android.util.Slog;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.net.ethernet.EthernetManager;
 
 import com.android.internal.app.IBatteryStats;
 import com.android.internal.telephony.IccCard;
@@ -96,6 +97,7 @@ public class NetworkController extends BroadcastReceiver {
     String mContentDescriptionCombinedSignal;
     String mContentDescriptionDataType;
 
+    String mContentDescriptionEthernet;
     // wifi
     final WifiManager mWifiManager;
     AsyncChannel mWifiChannel;
@@ -105,6 +107,9 @@ public class NetworkController extends BroadcastReceiver {
     int mWifiIconId = 0;
     int mWifiActivityIconId = 0; // overlay arrows for wifi direction
     int mWifiActivity = WifiManager.DATA_ACTIVITY_NONE;
+    boolean mEthernetConnected;
+    int mEthernetIconId = R.drawable.stat_sys_ethernet_error;
+    int mEthernetActivityIconId = 0; // overlay arrows for ethernet direction
 
     // bluetooth
     private boolean mBluetoothTethered = false;
@@ -150,6 +155,7 @@ public class NetworkController extends BroadcastReceiver {
     String mLastCombinedLabel = "";
 
     private boolean mHasMobileDataFeature;
+    int mLastEthernetIconId = -1;
 
     boolean mDataAndWifiStacked = false;
 
@@ -162,6 +168,7 @@ public class NetworkController extends BroadcastReceiver {
         void setMobileDataIndicators(boolean visible, int strengthIcon, int activityIcon,
                 int typeIcon, String contentDescription, String typeContentDescription);
         void setIsAirplaneMode(boolean is);
+        void setEthernetIndicators(boolean visible, int strengthIcon, int activityIcon, String contentDescription);
     }
 
     /**
@@ -219,6 +226,8 @@ public class NetworkController extends BroadcastReceiver {
         filter.addAction(ConnectivityManager.INET_CONDITION_ACTION);
         filter.addAction(Intent.ACTION_CONFIGURATION_CHANGED);
         filter.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED);
+        filter.addAction(EthernetManager.ETHERNET_STATE_CHANGED_ACTION);
+        filter.addAction(EthernetManager.NETWORK_STATE_CHANGED_ACTION);
         mWimaxSupported = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_wimaxEnabled);
         if(mWimaxSupported) {
@@ -285,6 +294,7 @@ public class NetworkController extends BroadcastReceiver {
                 mWifiIconId,
                 mWifiActivityIconId,
                 mContentDescriptionWifi);
+        cluster.setEthernetIndicators(mEthernetConnected, mEthernetIconId, mEthernetActivityIconId, mContentDescriptionEthernet);
 
         if (mIsWimaxEnabled && mWimaxConnected) {
             // wimax is special
@@ -297,6 +307,7 @@ public class NetworkController extends BroadcastReceiver {
                     mContentDescriptionDataType);
         } else {
             // normal mobile data
+            int dataSignalIconId = (mWifiConnected || mEthernetConnected) ? 0 : mDataSignalIconId;
             cluster.setMobileDataIndicators(
                     mHasMobileDataFeature,
                     mShowPhoneRSSIForData ? mPhoneSignalIconId : mDataSignalIconId,
@@ -343,6 +354,10 @@ public class NetworkController extends BroadcastReceiver {
                 action.equals(WimaxManagerConstants.SIGNAL_LEVEL_CHANGED_ACTION) ||
                 action.equals(WimaxManagerConstants.WIMAX_NETWORK_STATE_CHANGED_ACTION)) {
             updateWimaxState(intent);
+            refreshViews();
+        } else if (action.equals(EthernetManager.NETWORK_STATE_CHANGED_ACTION) ||
+                action.equals(EthernetManager.ETHERNET_STATE_CHANGED_ACTION)) {
+            updateEthernetState(intent);
             refreshViews();
         }
     }
@@ -809,6 +824,26 @@ public class NetworkController extends BroadcastReceiver {
         return null;
     }
 
+    private void updateEthernetState(Intent intent){
+        final String action = intent.getAction();
+        if (action.equals(EthernetManager.NETWORK_STATE_CHANGED_ACTION)) {
+            final NetworkInfo networkInfo = (NetworkInfo)
+                    intent.getParcelableExtra(EthernetManager.EXTRA_NETWORK_INFO);
+            boolean wasConnected = mEthernetConnected;
+            mEthernetConnected = networkInfo != null && networkInfo.isConnected();
+        }
+        updateEthernetIcons();
+    }
+
+    private void updateEthernetIcons(){
+        if (mEthernetConnected) {
+            mEthernetIconId = R.drawable.stat_sys_ethernet_established;
+            mContentDescriptionEthernet = mContext.getString(R.string.ethernet_description);
+        } else {
+            mEthernetIconId = R.drawable.stat_sys_ethernet_error;
+            //mContentDescriptionEthernet = "DISCONNECTED";
+        }
+	    }
 
     // ===== Wimax ===================================================================
     private final void updateWimaxState(Intent intent) {
@@ -883,6 +918,7 @@ public class NetworkController extends BroadcastReceiver {
         updateDataIcon();
         updateTelephonySignalStrength();
         updateWifiIcons();
+        updateEthernetIcons();
     }
 
 
@@ -984,6 +1020,12 @@ public class NetworkController extends BroadcastReceiver {
             }
         }
 
+        if (mEthernetConnected) {
+            combinedLabel = mContext.getString(R.string.ethernet_link);
+            combinedActivityIconId = mEthernetIconId;
+            combinedSignalIconId = mEthernetIconId;
+            mContentDescriptionCombinedSignal = mContentDescriptionEthernet;
+        }
         if (mBluetoothTethered) {
             combinedLabel = mContext.getString(R.string.bluetooth_tethered);
             combinedSignalIconId = mBluetoothTetherIconId;
